@@ -30,8 +30,6 @@ function mostrar()
 	while(contador < 5) {
 		do{
 			nombre = prompt("Ingresar nombre");
-			console.log(nombre);
-			console.log(contador);
 		} while (nombre === null || (!(isNaN(nombre))) );
 
 		do{
