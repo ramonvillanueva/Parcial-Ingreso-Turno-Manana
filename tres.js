@@ -25,11 +25,14 @@ function mostrar()
 
 	var banderaPrimera;
 
+	var acumuladorInvierno;
+
 	respuesta = true;
 	contadorSalta = 0;
 	contardorBariloche = 0;
 	contadorCataratas = 0;
 	banderaPrimera = 0;
+	acumuladorInvierno = 0;
 
 	while(respuesta === true) {
 
@@ -74,10 +77,18 @@ function mostrar()
 			titularConMasPersonas = nombre;
 		}
 
+		//PUNTO C
+		if (temporada == "invierno") {
+			acumuladorInvierno += cantidad;
+			contadorInvierno++;
+		}
+
 
 
 		respuesta = confirm("¿Desea ingresar otra estadia?");
 	}
+
+
 
 
 	//PUNTO A
@@ -91,6 +102,11 @@ function mostrar()
 		lugarMasElegido = "bariloche";
 	}
 
+	//PUNTO C
+
+	promedio = acumuladorInvierno / contadorInvierno;
+
 	console.log("El lugar más elegido es:" + lugarMasElegido);
 	console.log("El nombre del titular con más personas es " + titularConMasPersonas);
+	console.log("Promedio de personas que van en invierno : " + promedio);
 }
