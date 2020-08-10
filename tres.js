@@ -11,5 +11,86 @@ c)el promedio de personas por viaje,  que viajan en invierno
 */
 function mostrar()
 {
-	alert("tres");
+	//ALUMNO: Ramón Villanueva
+	var respuesta;
+	var nombre;
+	var lugar;
+	var temporada;
+	var cantidad;
+
+	var contadorSalta;
+	var contadorCataratas;
+	var contardorBariloche;
+	var lugarMasElegido;
+
+	var banderaPrimera;
+
+	respuesta = true;
+	contadorSalta = 0;
+	contardorBariloche = 0;
+	contadorCataratas = 0;
+	banderaPrimera = 0;
+
+	while(respuesta === true) {
+
+		do{
+			nombre = prompt("Ingrese el nombre del titular");
+		} while ( nombre === null || (!(isNaN(nombre))) );
+
+		do {
+			lugar = prompt("Ingrese el lugar ( bariloche, cataratas o salta) ");
+		} while (lugar != "bariloche" && lugar != "cataratas" && lugar != "salta");
+
+		do {
+			temporada = prompt("Ingrese la temporada (otoño,invierno,verano,primavera) ");				
+		} while (temporada != "otoño" && temporada != "invierno" && temporada != "verano" && temporada != "prinavera" );
+
+		do {
+			cantidad = prompt("Ingrese la cantidad de personas que viajan");
+		} while (isNaN(cantidad));
+
+		//PUNTO A
+		switch(lugar) {
+			case "bariloche":
+				contardorBariloche++;
+				break;
+
+			case "cataratas":
+				contadorCataratas++;
+				break;
+
+			case "salta":
+				contadorSalta++;
+				break;
+		}
+
+		//PUNTO B
+		if (banderaPrimera === 0) {
+			banderaPrimera++;
+			cantidadMasPersonas = cantidad;
+			titularConMasPersonas = nombre;
+		}else if (cantidad > cantidadMasPersonas) {
+			cantidadMasPersonas = cantidad
+			titularConMasPersonas = nombre;
+		}
+
+
+
+		respuesta = confirm("¿Desea ingresar otra estadia?");
+	}
+
+
+	//PUNTO A
+	if (contadorSalta > contadorCataratas && contadorSalta > contardorBariloche) {
+		lugarMasElegido = "Salta";
+
+	}else if (contadorCataratas > contadorSalta && contadorCataratas > contardorBariloche) {
+		lugarMasElegido = "Cataratass";
+
+	}else if (contardorBariloche > contadorCataratas && contardorBariloche > contadorSalta) {
+		lugarMasElegido = "bariloche";
+	}
+
+	console.log("El lugar más elegido es:" + lugarMasElegido);
+	console.log("El nombre del titular con más personas es " + titularConMasPersonas);
 }
